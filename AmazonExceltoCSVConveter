@@ -1,0 +1,243 @@
+package csv;
+
+
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class amazonExcelToCsvConvert {
+	public static void main(String[] args) {
+		//INPUT
+		String excelFilePath = ".\\S3 Input\\S3 Format Input data.xlsx";
+
+		String csvFilePath = ".\\target\\10Nov2025_gr_nw_kvi_mapping_ApolloPharmacy10am.csv";
+
+		/*
+		 *                                                                                                       10Nov2025_gr_nw_kvi_mapping_floweraura9am
+		 *
+                                                                                                         10Nov2025_gr_nw_kvi_mapping_fnp9am
+
+                                                                                                         10Nov2025_gr_nw_kvi_mapping_igp9am
+		 *
+		 *
+		 *                                                                                                         10Nov2025_gr_nw_kvi_mapping_Dmart10am
+		  10Nov2025_gr_nw_kvi_mapping_AmazonSkin+FaceCare10am
+
+		  10Nov2025_gr_nw_kvi_mapping_BigBasketSkin+FaceCare10am
+
+		 10Nov2025_gr_nw_kvi_mapping_FlipkartSkin+FaceCare10am				                                10Nov2025_gr_nw_kvi_mapping_AmazonDiapers10am
+
+		  10Nov2025_gr_nw_kvi_mapping_MyntraSkin+FaceCare10am			                                    10Nov2025_gr_nw_kvi_mapping_AmazonGurgaon10am
+
+		  10Nov2025_gr_nw_kvi_mapping_NykaaSkin+FaceCare10am				                                    10Nov2025_gr_nw_kvi_mapping_AmazonPharma10am
+
+		  	                                                                                                    10Nov2025_gr_nw_kvi_mapping_AmazonGMCategories10am
+
+		  	                                                                                                    10Nov2025_gr_nw_kvi_mapping_ZeptoPharma10am
+
+
+		  10Nov2025_gr_nw_kvi_mapping_PurplleSkin+FaceCare10am
+		  10Nov2025_gr_nw_kvi_mapping_SwiggySkin+FaceCare10am				                                10Nov2025_gr_nw_kvi_mapping_FirstCryDiapers10am
+
+		   	10Nov2025_gr_nw_kvi_mapping_ZeptoSkin+FaceCare10am			                                        10Nov2025_gr_nw_kvi_mapping_FirstCryGurgaon10am
+
+
+																												 10Nov2025_gr_nw_kvi_mapping_Tata_1mgPharma10am
+																												10Nov2025_gr_nw_kvi_mapping_ApolloPharmacy10am
+																										  	 	10Nov2025_gr_nw_kvi_mapping_SwiggyPharma10am
+
+
+
+		  	 																	                                  10Nov2025_gr_nw_kvi_mapping_HeadsUpForTails10am
+		 =TEXT(((H2-I2)/H2)*100, "0") & "% Off"
+		   	 																	                                 10Nov2025_gr_nw_kvi_mapping_SuperTails10am
+
+
+
+
+		10Nov2025_gr_nw_kvi_mapping_BigBasketFnv8am
+		 */
+
+
+		try (FileInputStream fis = new FileInputStream(excelFilePath);
+
+				Workbook workbook = new XSSFWorkbook(fis);
+				BufferedWriter writer = new BufferedWriter(new FileWriter(csvFilePath))) {
+
+			Sheet sheet = workbook.getSheetAt(0); // Get the first sheet
+
+			// Write customized headers to CSV
+
+			//Amazon
+
+			         //   writer.write("Pid,City,Title,Size,Multiplier,Amazon_productcode,Amazon_MRP,Amazon_selling_price,Amazon_availability,Amazon_UOM");
+
+			//Firstcry
+
+			        //  writer.write("Pid,City,Title,Size,Multiplier,FirstCry_productcode,FirstCry_MRP,FirstCry_selling_price,FirstCry_availability,FirstCry_UOM");
+
+			//Myntra
+
+			           //  writer.write("Pid,City,Title,Size,Multiplier,Myntra_productcode,Myntra_MRP,Myntra_selling_price,Myntra_availability,Myntra_UOM");
+
+			//Nykaa
+
+			  // writer.write("Pid,City,Title,Size,Multiplier,Nykaa_productcode,Nykaa_MRP,Nykaa_selling_price,Nykaa_availability,Nykaa_UOM");
+
+			//Swiggy
+
+			     //  writer.write("Pid,City,Title,Size,Multiplier,Swiggy_productcode,Swiggy_MRP,Swiggy_selling_price,Swiggy_availability,Swiggy_UOM");
+
+			//Zepto
+
+       		    //    writer.write("Pid,City,Title,Size,Multiplier,Zepto_productcode,Zepto_MRP,Zepto_selling_price,Zepto_availability,Zepto_UOM");
+
+			//Purplle
+
+			       //   writer.write("Pid,City,Title,Size,Multiplier,Purplle_productcode,Purplle_MRP,Purplle_selling_price,Purplle_availability,Purplle_UOM");
+
+			//BigBasket
+
+			         //  writer.write("Pid,City,Title,Size,Multiplier,BigBasket_productcode,BigBasket_MRP,BigBasket_selling_price,BigBasket_availability,BigBasket_UOM");
+
+			//Flipkart
+
+			         //  writer.write("Pid,City,Title,Size,Multiplier,Flipkart_productcode,Flipkart_MRP,Flipkart_selling_price,Flipkart_availability,Flipkart_UOM");
+
+			//Apollo
+
+			  writer.write("Pid,City,Title,Size,Multiplier,ApolloPharmacy_productcode,ApolloPharmacy_MRP,ApolloPharmacy_selling_price,ApolloPharmacy_availability,ApolloPharmacy_UOM");
+
+			
+			//Tata1mg
+
+			   // writer.write("Pid,City,Title,Size,Multiplier,Tata_1mg_productcode,Tata_1mg_MRP,Tata_1mg_selling_price,Tata_1mg_availability,Tata_1mg_UOM");
+
+			//Dmart
+
+			          //  writer.write("Pid,City,Title,Size,Multiplier,Dmart_productcode,Dmart_MRP,Dmart_selling_price,Dmart_availability,Dmart_UOM");
+
+			//Supertails
+
+			            // writer.write("Pid,City,Title,Size,Multiplier,supertails_productcode,supertails_MRP,supertails_selling_price,supertails_availability,supertails_UOM");
+
+			//Headupfortails
+
+			         // writer.write("Pid,City,Title,Size,Multiplier,headsupfortails_productcode,headsupfortails_MRP,headsupfortails_selling_price,headsupfortails_availability,headsupfortails_UOM");
+
+
+
+			// Flower Aura
+
+			//  writer.write("Pid,City,Title,Size,Multiplier,floweraura_productcode,floweraura_MRP,floweraura_selling_price,floweraura_availability,floweraura_UOM");
+
+			// FNP
+
+			//	 writer.write("Pid,City,Title,Size,Multiplier,fnp_productcode,fnp_MRP,fnp_selling_price,fnp_availability,fnp_UOM");
+
+
+			// IGP
+
+			// writer.write("Pid,City,Title,Size,Multiplier,igp_productcode,igp_MRP,igp_selling_price,igp_availability,igp_UOM");
+
+
+
+			writer.newLine();
+
+			// Write data rows to CSV
+			for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) { // Start from the second row
+				Row row = sheet.getRow(rowIndex);
+				if (row != null) {
+					StringBuilder rowData = new StringBuilder();
+
+					// Define cells
+					Cell inputIdCell = row.getCell(0);
+					Cell cityCell = row.getCell(1);
+					Cell titleCell = row.getCell(2);
+					Cell sizeCell = row.getCell(3);
+					Cell multiplierCell = row.getCell(10);
+					Cell productCodeCell = row.getCell(4);
+					Cell mrpCell = row.getCell(7);
+					Cell spCell = row.getCell(8);
+					Cell availabilityCell = row.getCell(11);
+					Cell uomCell = row.getCell(9);
+
+					// Extract values with null checks and handle special characters
+					//String inputId = safeString(inputIdCell);
+					String inputId = getPidAsText(inputIdCell);
+					String city = safeString(cityCell);
+					String title = safeString(titleCell);
+					String size = safeString(sizeCell);
+					String multiplier = safeString(multiplierCell);
+					String productCode = safeString(productCodeCell);
+					String mrp = safeString(mrpCell);
+					String sp = safeString(spCell);
+					String availability = safeString(availabilityCell);
+					String uom = safeString(uomCell);
+
+					// Append values to rowData
+					rowData.append(inputId).append(",")
+					.append(city).append(",")
+					.append(title).append(",")
+					.append(size).append(",")
+					.append(multiplier).append(",")
+					.append(productCode).append(",")
+					.append(mrp).append(",")
+					.append(sp).append(",")
+					.append(availability).append(",")
+					.append(uom);
+
+					// Write the row data to the CSV file
+					writer.write(rowData.toString());
+					writer.newLine();
+				}
+			}
+
+			System.out.println("Excel file converted to"+ csvFilePath +" CSV successfully!");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// Ensure numeric Pid is treated as text (e.g., add leading apostrophe or force string formatting)
+	private static String getPidAsText(Cell cell) {
+		if (cell == null) {
+			return "";
+		}
+		switch (cell.getCellType()) {
+		case STRING:
+			return cell.getStringCellValue().trim();
+		case NUMERIC:
+			// Remove scientific notation and decimal point if it's a whole number
+			double d = cell.getNumericCellValue();
+			if (d == (long) d) {
+				return String.valueOf((long) d);
+			} else {
+				return String.valueOf(d);
+			}
+		default:
+			return cell.toString().trim();
+		}
+	}
+
+	// Method to safely convert cell values to string
+	private static String safeString(Cell cell) {
+		if (cell == null) {
+			return ""; // Return empty string for null cells
+		}
+		String value = cell.toString().trim(); // Trim whitespace
+		// Enclose in quotes if it contains a comma or newline
+		if (value.contains(",") || value.contains("\n")) {
+			return "\"" + value + "\"";
+		}
+		return value;
+	}
+}
